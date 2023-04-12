@@ -11,3 +11,8 @@ export const getMealDetails = async (mealId) => {
     const response = await axios.get(`${THIRD_PARTY_API}lookup.php?i=${mealId}`)
     return response.data
 }
+
+export const getCategories = async () => {
+    const response = await axios.get(`${THIRD_PARTY_API}categories.php`)
+    return response.data
+}

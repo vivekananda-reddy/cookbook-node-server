@@ -11,9 +11,15 @@ const getMealDetails = async (req, res) => {
     res.json(mealDetails)
 }
 
+const getCategories = async (req, res) => {
+    const categories = await search.getCategories();
+    res.json(categories)
+}
+
 const cookbookController = (app) => {
     app.get('/api/search/:searchstring', searchByMeal)
     app.get('/api/details/:mid', getMealDetails)
+    app.get('/api/categories', getCategories)
 }
 
 export default cookbookController;
