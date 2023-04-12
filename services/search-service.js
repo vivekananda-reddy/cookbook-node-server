@@ -16,3 +16,8 @@ export const getCategories = async () => {
     const response = await axios.get(`${THIRD_PARTY_API}categories.php`)
     return response.data
 }
+
+export const getMealsbyCategory = async (categoryName) => {
+    const response = await axios.get(`${THIRD_PARTY_API}filter.php?c=${categoryName}`)
+    return response.data
+}
