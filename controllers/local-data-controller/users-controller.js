@@ -18,16 +18,13 @@ const findUserId = async (req, res) => {
 
 const createUser = async (req,res) => {
     const newUser = req.body;
-    console.log(newUser)
     const userExists = await usersDao.findUserByUserName(newUser.userName)
-    console.log(userExists)
     if (userExists !== null) {
-        res.send({
-            error: "User Name already exists"
-        })
-        return;
+        res.sendStatus(409)
+        return
     }
     const registeredUser = await usersDao.createUser(newUser);
+    req.session["currentUser"] = registeredUser;
     res.json(registeredUser)
 }
 
@@ -37,11 +34,41 @@ const deleteUser = async (req, res) => {
     res.json(status)
 }
 
+
+const loginUser = async (req,res) => {
+    const userCred = req.body;
+    const user = await usersDao.findUserByCredentials(userCred);
+    if(!user) {
+        res.sendStatus(404)
+        return
+    }
+    req.session["currentUser"] = user;
+    res.json(user)
+}
+
+const currentProfile = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    if (!currentUser) {
+        res.sendStatus(404);
+        return;
+    }
+    res.json(currentUser);
+
+}
+
+const logoutUser = async (req, res) => {
+    req.session.destroy();
+    res.sendStatus(200)
+}
+
 const usersController = (app) => {
     app.get('/api/users', findAllUsers)
-    app.get('/api/users/:uid', findUserId)
+    app.get('/api/users/profile/:uid', findUserId)
     app.post('/api/users', createUser)
     app.delete('/api/users/:uid', deleteUser)
+    app.post('/api/users/login', loginUser)
+    app.post('/api/users/profile', currentProfile)
+    app.post('/api/users/logout', logoutUser)
 }
 
 

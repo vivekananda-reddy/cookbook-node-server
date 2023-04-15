@@ -13,6 +13,10 @@ export const findUserByUserName =  (userName) => {
     return usersModel.findOne({userName : userName});
 }
 
+export const findUserByCredentials = (userCred) => {
+    return usersModel.findOne({userName: userCred.userName, password: userCred.password})
+}
+
 export const createUser = (user) => {
     return usersModel.create(user)
 }
