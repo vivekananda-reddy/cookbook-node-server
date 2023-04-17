@@ -61,6 +61,17 @@ const logoutUser = async (req, res) => {
     res.sendStatus(200)
 }
 
+const createChef = async (req, res) => {
+    const newUser = req.body;
+    const userExists = await usersDao.findUserByUserName(newUser.userName)
+    if (userExists !== null) {
+        res.sendStatus(409)
+        return
+    }
+    const registeredUser = await usersDao.createUser(newUser);
+    res.json(registeredUser)
+}
+
 const usersController = (app) => {
     app.get('/api/users', findAllUsers)
     app.get('/api/users/profile/:uid', findUserId)
@@ -69,8 +80,7 @@ const usersController = (app) => {
     app.post('/api/users/login', loginUser)
     app.post('/api/users/profile', currentProfile)
     app.post('/api/users/logout', logoutUser)
+    app.post('/api/users/chef', createChef)
 }
-
-
 
 export default usersController;
