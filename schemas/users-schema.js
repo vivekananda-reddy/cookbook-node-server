@@ -7,7 +7,8 @@ const usersSchema = new mongoose.Schema(
             role: {type:String, default: "user", enum: ["admin", "chef", "user"]},
             name: {type:String, required:true},
             email: {type:String, required:true},
-            category: {type:String, required:true}
+            category: {type:String, required:true},
+            favorite: {type:String}
 
     }, {collection: 'users'});
 export default usersSchema;

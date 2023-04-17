@@ -4,7 +4,6 @@ export const findAllUsers =  () => {
     return usersModel.find();
 }
 
-
 export const findUserById =  (userId) => {
     return usersModel.findOne({_id : userId});
 }
@@ -17,10 +16,18 @@ export const findUserByCredentials = (userCred) => {
     return usersModel.findOne({userName: userCred.userName, password: userCred.password})
 }
 
+export const findUsersByFavorite = (mealID) => {
+    return usersModel.find({favorite: mealID})
+}
+
 export const createUser = (user) => {
     return usersModel.create(user)
 }
 
 export const deleteUser = (userId) => {
     return usersModel.deleteOne({_id: userId})
+}
+
+export const updateUserFavorite = (userId, favorite) => {
+    return usersModel.updateOne({_id: userId}, {$set: {favorite: favorite}})
 }
