@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 import session from "express-session"
 import likesController from "./controllers/local-data-controller/likes-controller.js";
 import favoriteController from "./controllers/local-data-controller/favorite-controller.js";
+import reviewController from "./controllers/local-data-controller/reviews-controller.js";
 
 const CONNECTION_STRING =  'mongodb://127.0.0.1:27017/cookbook' || process.env.DB_CONNECTION_STRING_PROJECT
 mongoose.connect(CONNECTION_STRING);
@@ -39,5 +40,6 @@ cookbookController(app)
 usersController(app)
 likesController(app)
 favoriteController(app)
+reviewController(app)
 
 app.listen(process.env.PORT || 4000)
