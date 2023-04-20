@@ -30,9 +30,11 @@ app.use(
 
 
 app.use(express.json());
+
+const allowedOrigins = ['http://localhost:3000','https://vivek-cookbook.netlify.app']
 app.use(cors({
                  credentials: true,
-                 origin: "http://localhost:3000", //make it environment variable
+                 origin: allowedOrigins, //make it environment variable
              }
 ));
 
