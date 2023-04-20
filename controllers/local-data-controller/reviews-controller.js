@@ -6,7 +6,7 @@ const findAllReviews = async (req, res) => {
 }
 
 const findReviewsByMealId = async (req, res) => {
-    const mealId = req.body.params;
+    const mealId = req.params.mealId;
     const reviews = await reviewsDao.findReviewsByMealId(mealId);
     res.json(reviews)
 }
@@ -51,7 +51,7 @@ const deleteReview = async (req, res) => {
 
 const reviewController = (app) => {
     app.get("/api/reviews", findAllReviews);
-    app.get("/api/:mealId/reviews", findReviewsByMealId);
+    app.get("/api/meal/:mealId/reviews", findReviewsByMealId);
     app.post("/api/reviews", createReview);
     app.put("/api/reviews/:reviewId", updateReview);
     app.delete("/api/reviews/:reviewId", deleteReview);
