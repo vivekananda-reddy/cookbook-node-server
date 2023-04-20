@@ -22,11 +22,17 @@ const getMealsbyCategory = async (req, res) => {
     res.json(meals);
 }
 
+const getRandomMeal = async (req, res) => {
+    const meals = await search.getRandomMeal();
+    res.json(meals)
+}
+
 const cookbookController = (app) => {
     app.get('/api/search/:searchstring', searchByMeal)
     app.get('/api/details/:mid', getMealDetails)
     app.get('/api/categories', getCategories)
     app.get('/api/categories/:categoryString', getMealsbyCategory)
+    app.get('/api/random', getRandomMeal)
 }
 
 export default cookbookController;

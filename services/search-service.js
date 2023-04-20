@@ -21,3 +21,8 @@ export const getMealsbyCategory = async (categoryName) => {
     const response = await axios.get(`${THIRD_PARTY_API}filter.php?c=${categoryName}`)
     return response.data
 }
+
+export const getRandomMeal = async () => {
+    const response = await axios.get(`${THIRD_PARTY_API}random.php`)
+    return response.data
+}
