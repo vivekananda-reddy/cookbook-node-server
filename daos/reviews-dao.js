@@ -1,25 +1,25 @@
 import reviewsModel from "../models/reviews-model.js";
 
-export const findAllReviews = async () => {
-    return await reviewsModel.find();
+export const findAllReviews = () => {
+    return reviewsModel.find();
 };
 
-export const findReviewsByMealId = async (idMeal) => {
-    return await reviewsModel.find({idMeal: idMeal}).populate("user",["userName", "name", "role"]).exec();
+export const findReviewsByMealId = (idMeal) => {
+    return reviewsModel.find({idMeal: idMeal}).populate("user",["userName", "name", "role"]).exec();
 };
 
-export const findReviewsByUserId = async (userId) => {
-    return await reviewsModel.find({user: userId});
+export const findReviewsByUserId = (userId) => {
+    return reviewsModel.find({user: userId});
 };
 
-export const createReview = async (review) => {
-    return await reviewsModel.create(review);
+export const createReview = (review) => {
+    return reviewsModel.create(review);
 };
 
-export const deleteReview = async (reviewId) => {
-    return await reviewsModel.deleteOne({_id: reviewId});
+export const deleteReview = (reviewId) => {
+    return reviewsModel.deleteOne({_id: reviewId});
 };
 
-export const updateReview = async (reviewId, review) => {
-    return await reviewsModel.updateOne({_id: reviewId}, {$set: review});
+export const updateReview = (reviewId, review) => {
+    return reviewsModel.updateOne({_id: reviewId}, {$set: review});
 };

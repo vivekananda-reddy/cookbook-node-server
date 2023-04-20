@@ -21,7 +21,7 @@ const createReview = async (req, res) => {
         ...req.body,
         user: currentUser._id
     }
-    const createdReview = reviewsDao.createReview(newReview);
+    const createdReview = await reviewsDao.createReview(newReview);
     res.json(createdReview)
 }
 
