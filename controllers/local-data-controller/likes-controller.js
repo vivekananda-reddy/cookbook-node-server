@@ -20,7 +20,6 @@ const findLikesByUser = async (req, res) => {
 const createLikes = async (req, res) => {
     const request = req.body
     const currentUser = req.session["currentUser"]
-    console.log(currentUser)
     if (!currentUser) {
         res.sendStatus(403)
         return
