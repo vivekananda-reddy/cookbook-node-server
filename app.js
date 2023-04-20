@@ -8,7 +8,7 @@ import likesController from "./controllers/local-data-controller/likes-controlle
 import favoriteController from "./controllers/local-data-controller/favorite-controller.js";
 import reviewController from "./controllers/local-data-controller/reviews-controller.js";
 
-const CONNECTION_STRING =  'mongodb://127.0.0.1:27017/cookbook' || process.env.DB_CONNECTION_STRING_PROJECT
+const CONNECTION_STRING =  process.env.DB_CONNECTION_STRING_PROJECT ||'mongodb://127.0.0.1:27017/cookbook'
 mongoose.connect(CONNECTION_STRING);
 
 const app = express()
