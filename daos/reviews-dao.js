@@ -5,7 +5,7 @@ export const findAllReviews = async () => {
 };
 
 export const findReviewsByMealId = async (idMeal) => {
-    return await reviewsModel.find({idMeal: idMeal}).populate("user", "userName").exec();
+    return await reviewsModel.find({idMeal: idMeal}).populate("user",["userName", "name", "role"]).exec();
 };
 
 export const findReviewsByUserId = async (userId) => {
