@@ -31,7 +31,7 @@ app.use(
 
 app.use(express.json());
 
-const allowedOrigins = ['http://localhost:3000','https://vivek-cookbook.netlify.app']
+const allowedOrigins = ['http://localhost:3000',process.env.REACT_CONNECT_URL]
 app.use(cors({
                  credentials: true,
                  origin: allowedOrigins, //make it environment variable
