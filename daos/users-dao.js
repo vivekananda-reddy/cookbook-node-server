@@ -31,3 +31,7 @@ export const deleteUser = (userId) => {
 export const updateUserFavorite = (userId, favorite) => {
     return usersModel.updateOne({_id: userId}, {$set: {favorite: favorite}})
 }
+
+export const updateUser = (userId, user) => {
+    return usersModel.updateOne({_id: userId}, {$set: user})
+}

@@ -1,4 +1,5 @@
 import * as usersDao from './../../daos/users-dao.js'
+import {updateUser} from "./../../daos/users-dao.js";
 
 const findAllUsers = async (req, res) => {
     const users = await usersDao.findAllUsers()
@@ -56,6 +57,24 @@ const currentProfile = async (req, res) => {
 
 }
 
+const editProfile = async (req, res) => {
+    const currentUser = req.session["currentUser"];
+    const updates = req.body
+    if (!currentUser) {
+        res.sendStatus(404);
+        return;
+    }
+    const status = await updateUser(currentUser._id, updates)
+    if (status.modifiedCount > 0) {
+        req.session["currentUser"] = {
+            ...req.session["currentUser"],
+            ...updates
+        }
+    }
+    res.sendStatus(200)
+
+}
+
 const logoutUser = async (req, res) => {
     req.session.destroy();
     res.sendStatus(200)
@@ -79,6 +98,7 @@ const usersController = (app) => {
     app.delete('/api/users/:uid', deleteUser)
     app.post('/api/users/login', loginUser)
     app.post('/api/users/profile', currentProfile)
+    app.put('/api/users/edit-profile', editProfile)
     app.post('/api/users/logout', logoutUser)
     app.post('/api/users/chef', createChef)
 }
