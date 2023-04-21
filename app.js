@@ -8,7 +8,7 @@ import likesController from "./controllers/local-data-controller/likes-controlle
 import favoriteController from "./controllers/local-data-controller/favorite-controller.js";
 import reviewController from "./controllers/local-data-controller/reviews-controller.js";
 
-const CONNECTION_STRING =  process.env.DB_CONNECTION_STRING_PROJECT ||'mongodb://127.0.0.1:27017/cookbook'
+const CONNECTION_STRING =  process.env.DB_CONNECTION_STRING_PROJECT_1 ||'mongodb://127.0.0.1:27017/cookbook'
 mongoose.connect(CONNECTION_STRING);
 
 const app = express()
@@ -34,7 +34,7 @@ app.use(express.json());
 const allowedOrigins = ['http://localhost:3000',process.env.REACT_CONNECT_URL]
 app.use(cors({
                  credentials: true,
-                 origin: allowedOrigins, //make it environment variable
+                 origin: 'https://vivek-cookbook.netlify.app' //make it environment variable
              }
 ));
 
