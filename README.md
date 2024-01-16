@@ -1,4 +1,4 @@
-# Cookbook Backend Server
+# Cook Book Backend Server
 
 Cook Book is a social media web application for cooking enthusiasts. This repo contains the code for backend. Backend is built with skillfully crafted Rest APIs, node.js, Express and MongoDB.
 For Frontend Repo refer to: [frontend](https://github.com/vivekananda-reddy/cookbook-react-server)
