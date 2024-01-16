@@ -1,0 +1,270 @@
+{
+	"info": {
+		"_postman_id": "447ab4ab-1909-4376-9627-af7b6fa3107e",
+		"name": "cook book project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19461469"
+	},
+	"item": [
+		{
+			"name": "meal search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/search/chicken"
+			},
+			"response": []
+		},
+		{
+			"name": "meal details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/details/52956"
+			},
+			"response": []
+		},
+		{
+			"name": "meals by category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/categories/Beef"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userName\": \"test2\",\r\n        \"password\": \"test123\",\r\n        \"role\": \"user\",\r\n        \"email\": \"user2@gmail.com\",\r\n        \"category\": \"Vegan\",\r\n        \"name\": \"test user\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/users"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/users/643865849bab58d6e32fdc97"
+			},
+			"response": []
+		},
+		{
+			"name": "find user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/users/profile/6437203c8fdbe4856d2fdf17"
+			},
+			"response": []
+		},
+		{
+			"name": "login user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userName\":\"chef1\",\r\n    \"password\":\"chef123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/users/login"
+			},
+			"response": []
+		},
+		{
+			"name": "login profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/users/profile"
+			},
+			"response": []
+		},
+		{
+			"name": "edit profile",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\": \"chef123\",\r\n    \"role\": \"chef\",\r\n    \"name\": \"chef test\",\r\n    \"email\": \"chef@gmail.com\",\r\n    \"category\": \"Vegan\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/users/edit-profile"
+			},
+			"response": []
+		},
+		{
+			"name": "create chef",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"userName\": \"chef4\",\r\n        \"password\": \"chef123\",\r\n        \"role\": \"chef\",\r\n        \"email\": \"chef@gmail.com\",\r\n        \"category\": \"Vegan\",\r\n        \"name\": \"chef test\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/users/chef"
+			},
+			"response": []
+		},
+		{
+			"name": "create like",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idMeal\": \"52956\",\r\n    \"strMeal\": \"Chicken Handi\",\r\n    \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/1529446352.jpg\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/meal/52795/likes"
+			},
+			"response": []
+		},
+		{
+			"name": "Get all likes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://cookbook-od54.onrender.com/api/likes"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Like by meal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52956/likes"
+			},
+			"response": []
+		},
+		{
+			"name": "delete like",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52956/likes"
+			},
+			"response": []
+		},
+		{
+			"name": "create favorite meal",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52772/favorites"
+			},
+			"response": []
+		},
+		{
+			"name": "delete favorite meal",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52772/favorites"
+			},
+			"response": []
+		},
+		{
+			"name": "get favorites by meal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52956/favorites"
+			},
+			"response": []
+		},
+		{
+			"name": "create review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reviewText\": \"Sample review3\",\r\n    \"idMeal\": \"52956\",\r\n    \"strMeal\": \"Chicken Congee\",\r\n    \"strMealThumb\": \"https://www.themealdb.com/images/media/meals/1529446352.jpg\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:4000/api/reviews"
+			},
+			"response": []
+		},
+		{
+			"name": "get all reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/reviews"
+			},
+			"response": []
+		},
+		{
+			"name": "get reviews by meal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/meal/52956/reviews"
+			},
+			"response": []
+		},
+		{
+			"name": "get reviews by user id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:4000/api/users/643a086a7e44f52a8309f5bb/reviews"
+			},
+			"response": []
+		}
+	]
+}
